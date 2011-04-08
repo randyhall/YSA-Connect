@@ -435,7 +435,7 @@
 					height:'auto',
 					width:195,
 					font:{fontFamily:'American Typewriter',fontSize:16,fontWeight:'normal'},
-					color:'#579ddb',
+					color:'#569dda',
 					top:-68,
 					left:95,
 					ellipsize:true

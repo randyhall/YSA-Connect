@@ -43,7 +43,7 @@ CustomTabBar = function(settings) {
 	});
 	
 	var animator = Ti.UI.createAnimation({
-		duration:250
+		duration:150
 	});
 	
 	customTabBar.add(selectedImg);
