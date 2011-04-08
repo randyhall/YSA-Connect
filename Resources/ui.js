@@ -274,7 +274,7 @@
 			text:_event.date,
 			height:14,
 			width:280,
-			font:{fontSize:12},
+			font:{fontSize:12}, fontFamily:'TrebuchetMS',	
 			top:5,
 			left:20
 		}));
@@ -283,7 +283,7 @@
 			text:_event.location,
 			height:14,
 			width:280,
-			font:{fontSize:12},
+			font:{fontSize:12}, fontFamily:'TrebuchetMS',
 			left:20
 		}));
 		
@@ -321,7 +321,7 @@
 			text:_event.attendees,
 			height:14,
 			width:280,
-			font:{fontSize:12},
+			font:{fontSize:12}, fontFamily:'TrebuchetMS',
 			top:15,
 			left:20
 		}));
@@ -445,7 +445,7 @@
 					text:_evData[x][1],
 					height:'auto',
 					width:195,
-					font:{fontSize:12},
+					font:{fontSize:12}, fontFamily:'TrebuchetMS',
 					top:2,
 					left:95,
 					color:'#858687'
@@ -455,7 +455,7 @@
 					text:_evData[x][2],
 					height:'auto',
 					width:195,
-					font:{fontSize:12},
+					font:{fontSize:12}, fontFamily:'TrebuchetMS',
 					top:2,
 					left:95,
 					color:'#858687'
@@ -465,7 +465,7 @@
 					text:_evData[x][3],
 					height:'auto',
 					width:195,
-					font:{fontSize:12},
+					font:{fontSize:12}, fontFamily:'TrebuchetMS',
 					top:2,
 					left:95,
 					color:'#858687'
