@@ -553,7 +553,7 @@
 		var ctb = new CustomTabBar({
 			tabBar: tabGroup,
 			width: 107,
-			height: 44,
+			height: 49,
 			items: [
 				{ label:L('events') },
 				{ label:L('add') },

@@ -5,7 +5,7 @@ CustomTabBar = function(settings) {
 		for(var i = 0; i < tabBarItems.length; i++) {
 			// Clear all the images to make sure only
 			// one is shown as selected
-			tabBarItems[i].color = '#4E6865';
+			tabBarItems[i].color = '#4d6866';
 		}
 	};
 	
@@ -36,7 +36,7 @@ CustomTabBar = function(settings) {
 	
 	var selectedImg = Ti.UI.createImageView({
 		image:'tab-selected-bg.png',
-		top:0,
+		bottom:16,
 		left:0,
 		width:settings.width,
 		height:settings.height
@@ -53,12 +53,12 @@ CustomTabBar = function(settings) {
 		tabBarItems[i] = Titanium.UI.createLabel({
 			text:settings.items[i].label.toUpperCase(),
 			textAlign:'center',
-			color:'#4E6865',
+			color:'#4d6866',
 			shadowColor:'#fff',
 			shadowOffset:{x:0,y:1},
 			font:{fontSize:12,fontFamily:'TrebuchetMS-Bold'},
 			width:settings.width,
-			height:settings.height - 8,
+			height:settings.height - 13,
 			left:settings.width * i,
 			bottom:0
 		});
