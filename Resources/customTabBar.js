@@ -31,7 +31,7 @@ CustomTabBar = function(settings) {
 	var customTabBar = Ti.UI.createWindow({
 		height:settings.height,
 		bottom:0,
-		backgroundImage:'tab-bg.png'
+		backgroundImage:'tab-bar-bg.png'
 	});
 	
 	var selectedImg = Ti.UI.createImageView({
