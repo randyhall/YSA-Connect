@@ -448,7 +448,7 @@
 					font:{fontSize:12},
 					top:2,
 					left:95,
-					color:'#95969a'
+					color:'#858687'
 				}));
 				
 				evView.add(Ti.UI.createLabel({
@@ -458,7 +458,7 @@
 					font:{fontSize:12},
 					top:2,
 					left:95,
-					color:'#95969a'
+					color:'#858687'
 				}));
 				
 				evView.add(Ti.UI.createLabel({
@@ -468,7 +468,7 @@
 					font:{fontSize:12},
 					top:2,
 					left:95,
-					color:'#95969a'
+					color:'#858687'
 				}));
 				
 				if(x < (_data.length-1)) {
