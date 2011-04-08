@@ -3,10 +3,10 @@
 	ysa.ui = {};
 	
 	var events = [
-		['Cherry Creek Service Project','Apr. 16,2011 7:00 pm','Cherry Creek Retirement Home','18 other people are going','retire.png'],
-		['Ward "Grill & Chill" BBQ','Apr. 27, 2011 5:00 pm','River Park','38 other people are going','bbq.png'],
-		['YSA Regional Dance','May 11, 2011 8:00 pm','Oak Ridge Stake Center','You & 109 others are going','dance.png'],
-		['CES Broadcast with Elder Scott','June 6, 2011 7:00 pm','Oak Ridge Stake Center','You & 37 others are going','church.png'],
+		['Cherry Creek Service Project','April 16,2011 7:00 pm','Cherry Creek Retirement Home','18 other people are going','retire.png'],
+		['Ward "Grill and Chill" BBQ','April 27, 2011 5:00 pm','River Park','38 other people are going','bbq.png'],
+		['YSA Regional Dance','May 11, 2011 8:00 pm','Oak Ridge Stake Center','You and 109 others are going','dance.png'],
+		['CES Broadcast with Elder Scott','June 6, 2011 7:00 pm','Oak Ridge Stake Center','You and 37 others are going','church.png'],
 		['Enchantment Under the Sea Dance','June 17, 2011 8:00 pm','Park Place Stake Center','138 other people are going','dance.png']
 	];
 	
@@ -274,7 +274,7 @@
 			text:_event.date,
 			height:14,
 			width:280,
-			font:{fontSize:12}, fontFamily:'TrebuchetMS',	
+			font:{fontSize:12, fontFamily:'TrebuchetMS'},	
 			top:5,
 			left:20
 		}));
@@ -283,7 +283,7 @@
 			text:_event.location,
 			height:14,
 			width:280,
-			font:{fontSize:12}, fontFamily:'TrebuchetMS',
+			font:{fontSize:12, fontFamily:'TrebuchetMS'},
 			left:20
 		}));
 		
@@ -321,7 +321,7 @@
 			text:_event.attendees,
 			height:14,
 			width:280,
-			font:{fontSize:12}, fontFamily:'TrebuchetMS',
+			font:{fontSize:12, fontFamily:'TrebuchetMS'},
 			top:15,
 			left:20
 		}));
@@ -385,11 +385,11 @@
 				image:'table-header.png'
 			}),
 			footerView:Ti.UI.createImageView({
-				height:10,
+				height:12,
 				image:'table-footer.png',
 				top:0
 			}),
-			height:426,
+			height:424,
 			top:0
 		});
 		
@@ -404,6 +404,7 @@
 					location:_evData[x][2],
 					attendees:_evData[x][3],
 					backgroundImage:'table-shadow.png',
+					selectedBackgroundImage:'table-selected-bg.png',
 					height:'auto',
 					layout:'absolute'
 				});
@@ -445,7 +446,7 @@
 					text:_evData[x][1],
 					height:'auto',
 					width:195,
-					font:{fontSize:12}, fontFamily:'TrebuchetMS',
+					font:{fontSize:13, fontFamily:'TrebuchetMS'},
 					top:2,
 					left:95,
 					color:'#858687'
@@ -455,7 +456,7 @@
 					text:_evData[x][2],
 					height:'auto',
 					width:195,
-					font:{fontSize:12}, fontFamily:'TrebuchetMS',
+					font:{fontSize:13, fontFamily:'TrebuchetMS'},
 					top:2,
 					left:95,
 					color:'#858687'
@@ -465,7 +466,7 @@
 					text:_evData[x][3],
 					height:'auto',
 					width:195,
-					font:{fontSize:12}, fontFamily:'TrebuchetMS',
+					font:{fontSize:13, fontFamily:'TrebuchetMS'},
 					top:2,
 					left:95,
 					color:'#858687'
