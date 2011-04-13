@@ -21,7 +21,7 @@ CustomTabBar = function(settings) {
 			resetTabs();
 			
 			// Set the current tab as selected
-			animator.left = settings.width*pos;
+			animator.left = settings.width*pos-51;
 			selectedImg.animate(animator);
 			tabBarItems[pos].color = '#da6b56';
 		});
@@ -36,14 +36,14 @@ CustomTabBar = function(settings) {
 	
 	var selectedImg = Ti.UI.createImageView({
 		image:'tab-selected-bg.png',
-		bottom:17,
-		left:0,
-		width:settings.width,
-		height:settings.height
+		bottom:0,
+		left:-51,
+		width:209,
+		height:63
 	});
 	
 	var animator = Ti.UI.createAnimation({
-		duration:150
+		duration:250
 	});
 	
 	customTabBar.add(selectedImg);
@@ -58,7 +58,7 @@ CustomTabBar = function(settings) {
 			shadowOffset:{x:0,y:1},
 			font:{fontSize:12,fontFamily:'TrebuchetMS-Bold'},
 			width:settings.width,
-			height:settings.height - 13,
+			height:settings.height - 26,
 			left:settings.width * i,
 			bottom:0
 		});

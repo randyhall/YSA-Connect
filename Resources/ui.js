@@ -15,7 +15,7 @@
 			layout:'vertical',
 			navBarHidden:true,
 			tabBarHidden:true,
-			height:436,
+			height:424,
 			top:0
 		});
 		
@@ -128,11 +128,21 @@
 			layout:'vertical',
 			navBarHidden:true,
 			tabBarHidden:true,
-			height:436,
+			height:424,
 			top:0
 		});
 		
-		win.add(Ti.UI.createLabel({
+		var scroll = Ti.UI.createScrollView({
+			backgroundImage:'table-shadow.png',
+			layout:'vertical',
+			height:424,
+			headerView:Ti.UI.createImageView({
+				image:'table-header.png',
+				height:45
+			})
+		});
+		
+		scroll.add(Ti.UI.createLabel({
 			text:L('event_name_label'),
 			height:24,
 			width:280,
@@ -145,9 +155,9 @@
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			top:5
 		});
-		win.add(evName);
+		scroll.add(evName);
 		
-		win.add(Ti.UI.createLabel({
+		scroll.add(Ti.UI.createLabel({
 			text:L('event_date_label'),
 			height:24,
 			width:280,
@@ -165,11 +175,11 @@
 			var datePick = Ti.UI.createPicker({
 				type:Titanium.UI.PICKER_TYPE_DATE_AND_TIME
 			});
-			win.add(datePick);
+			scroll.add(datePick);
 		});
-		win.add(evDate);
+		scroll.add(evDate);
 		
-		win.add(Ti.UI.createLabel({
+		scroll.add(Ti.UI.createLabel({
 			text:L('event_location_label'),
 			height:24,
 			width:280,
@@ -182,9 +192,9 @@
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			top:5
 		});
-		win.add(evLocation);
+		scroll.add(evLocation);
 		
-		win.add(Ti.UI.createLabel({
+		scroll.add(Ti.UI.createLabel({
 			text:L('event_img_label'),
 			height:24,
 			width:280,
@@ -197,7 +207,7 @@
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			top:5
 		});
-		win.add(evImg);
+		scroll.add(evImg);
 		
 		var cancelBtn = Ti.UI.createButton({
 			title:L('never_mind'),
@@ -210,7 +220,7 @@
 		cancelBtn.addEventListener('click',function () {
 			win.tabGroup.setActiveTab(0);
 		});
-		win.add(cancelBtn);
+		scroll.add(cancelBtn);
 		
 		var submitBtn = Ti.UI.createButton({
 			title:L('make_it_happen'),
@@ -246,7 +256,9 @@
 			approvalAlert.show();
 			
 		});
-		win.add(submitBtn);
+		scroll.add(submitBtn);
+		
+		win.add(scroll);
 		
 		return win;
 	};
@@ -256,7 +268,7 @@
 			layout:'vertical',
 			navBarHidden:true,
 			tabBarHidden:true,
-			height:436,
+			height:424,
 			top:0
 		});
 		
@@ -389,7 +401,7 @@
 				image:'table-footer.png',
 				top:0
 			}),
-			height:424,
+			height:422,
 			top:0
 		});
 		
@@ -510,9 +522,8 @@
 		var win = Ti.UI.createWindow({
 			navBarHidden:true,
 			tabBarHidden:true,
-			height:436,
-			top:0,
-			backgroundImage:'win-bg.png'
+			height:424,
+			top:0
 		});
 		
 		win.add(ysa.ui.createEventsTableView(events));
@@ -554,7 +565,7 @@
 		var ctb = new CustomTabBar({
 			tabBar: tabGroup,
 			width: 107,
-			height: 49,
+			height: 63,
 			items: [
 				{ label:L('events') },
 				{ label:L('add') },
@@ -564,102 +575,5 @@
 		
 		return tabGroup;
 	};
-
-/*
-	ysa.ui.createApplicationWindow = function() {
-		// Create the tab group
-		var tabGroup = Titanium.UI.createWindow({
-			height:44,
-			width:'100%',
-			bottom:0,
-			backgroundColor:'#fff',
-			zIndex:1000000
-		});
-		
-		var z = 500;
-		
-		var home = ysa.ui.createEventsWindow();
-		var add = ysa.ui.createAddWindow();
-		var settings = ysa.ui.createSettingsWindow();
-		
-		var homeTab = Ti.UI.createView({
-			width:106,
-			height:44,
-			backgroundColor:'red',
-			left:0
-		});
-		homeTab.addEventListener('click',function() {
-			// open home window
-			z++
-			home.zIndex = z;
-		});
-		
-		var addTab = Ti.UI.createView({
-			width:108,
-			height:44,
-			backgroundColor:'blue',
-			left:106
-		});
-		addTab.addEventListener('click',function() {
-			// open home window
-			z++
-			add.zIndex = z;
-		});
-		
-		var settingsTab = Ti.UI.createView({
-			width:106,
-			height:44,
-			backgroundColor:'green',
-			left:214
-		});
-		settingsTab.addEventListener('click',function() {
-			// open home window
-			z++
-			settings.zIndex = z;
-		});
-		
-		tabGroup.add(homeTab);
-		tabGroup.add(addTab);
-		tabGroup.add(settingsTab);
-		
-		settings.open();
-		add.open();
-		home.open();
-		tabGroup.open();
-		
-		return home;
-		
-	};
-*/
-	
-/*
-	ysa.ui.createApplicationTabGroup = function() {
-		var tabGroup = Ti.UI.createTabGroup();
-		var home = ysa.ui.createEventsWindow();
-		var add = ysa.ui.createAddWindow();
-		var settings = ysa.ui.createSettingsWindow();
-		
-		ysa.homeTab = Ti.UI.createTab({
-			title: L('home'),
-			window: home
-		});
-		
-		ysa.addTab = Ti.UI.createTab({
-			title:L('add'),
-			window: add
-		});
-		
-		ysa.settingsTab = Ti.UI.createTab({
-			title:L('settings'),
-			window: settings
-		});
-		
-		tabGroup.addTab(ysa.homeTab);
-		tabGroup.addTab(ysa.addTab);
-		tabGroup.addTab(ysa.settingsTab);
-		
-		return tabGroup;
-	};
-*/
 	
 })();
