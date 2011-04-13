@@ -19,22 +19,40 @@
 			top:0
 		});
 		
-		win.setLeftNavButton(Ti.UI.createButton({
+		var scroll = Ti.UI.createScrollView({
+			layout:'vertical',
+			height:424
+		});
+		
+		scroll.add(Ti.UI.createImageView({
+			image:'table-header.png',
+			height:45
+		}));
+		
+		var con = Ti.UI.createView({
+			backgroundImage:'table-shadow.png',
+			layout:'vertical',
+			height:'auto'
+		});
+		
+		/*
+win.setLeftNavButton(Ti.UI.createButton({
 			title:L('cancel')
 		}));
 		
 		win.setRightNavButton(Ti.UI.createButton({
 			title:L('done')
 		}));
+*/
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('profile'),
 			height:'auto',
 			width:280,
 			top:15
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('display_name'),
 			height:'auto',
 			width:280,
@@ -42,21 +60,21 @@
 			top:5
 		}));
 		
-		win.add(Ti.UI.createTextField({
+		con.add(Ti.UI.createTextField({
 			height:30,
 			width:280,
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			top:5
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('area_interest'),
 			height:'auto',
 			width:280,
 			top:15
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('church_areas'),
 			height:'auto',
 			width:280,
@@ -64,14 +82,14 @@
 			top:5
 		}));
 		
-		win.add(Ti.UI.createTextField({
+		con.add(Ti.UI.createTextField({
 			height:30,
 			width:280,
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			top:5
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('include_location'),
 			height:'auto',
 			width:280,
@@ -79,20 +97,20 @@
 			top:25
 		}));
 		
-		win.add(Ti.UI.createSwitch({
+		con.add(Ti.UI.createSwitch({
 			value:true,
 			right:20,
 			top:-20
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('options'),
 			height:'auto',
 			width:280,
 			top:45
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('display_location'),
 			height:'auto',
 			width:280,
@@ -100,13 +118,13 @@
 			top:15
 		}));
 		
-		win.add(Ti.UI.createSwitch({
+		con.add(Ti.UI.createSwitch({
 			value:true,
 			right:20,
 			top:-20
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('display_profile'),
 			height:'auto',
 			width:280,
@@ -114,11 +132,20 @@
 			top:45
 		}));
 		
-		win.add(Ti.UI.createSwitch({
+		con.add(Ti.UI.createSwitch({
 			value:true,
 			right:20,
 			top:-20
 		}));
+		
+		scroll.add(con);
+		
+		scroll.add(Ti.UI.createImageView({
+			image:'table-footer.png',
+			height:12
+		}));
+		
+		win.add(scroll);
 		
 		return win;
 	};
@@ -133,16 +160,22 @@
 		});
 		
 		var scroll = Ti.UI.createScrollView({
-			backgroundImage:'table-shadow.png',
 			layout:'vertical',
-			height:424,
-			headerView:Ti.UI.createImageView({
-				image:'table-header.png',
-				height:45
-			})
+			height:424
 		});
 		
-		scroll.add(Ti.UI.createLabel({
+		scroll.add(Ti.UI.createImageView({
+			image:'table-header.png',
+			height:45
+		}));
+		
+		var con = Ti.UI.createView({
+			backgroundImage:'table-shadow.png',
+			layout:'vertical',
+			height:'auto'
+		});
+		
+		con.add(Ti.UI.createLabel({
 			text:L('event_name_label'),
 			height:24,
 			width:280,
@@ -155,9 +188,9 @@
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			top:5
 		});
-		scroll.add(evName);
+		con.add(evName);
 		
-		scroll.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('event_date_label'),
 			height:24,
 			width:280,
@@ -177,9 +210,9 @@
 			});
 			scroll.add(datePick);
 		});
-		scroll.add(evDate);
+		con.add(evDate);
 		
-		scroll.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('event_location_label'),
 			height:24,
 			width:280,
@@ -192,9 +225,9 @@
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			top:5
 		});
-		scroll.add(evLocation);
+		con.add(evLocation);
 		
-		scroll.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:L('event_img_label'),
 			height:24,
 			width:280,
@@ -207,7 +240,7 @@
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			top:5
 		});
-		scroll.add(evImg);
+		con.add(evImg);
 		
 		var cancelBtn = Ti.UI.createButton({
 			title:L('never_mind'),
@@ -220,13 +253,14 @@
 		cancelBtn.addEventListener('click',function () {
 			win.tabGroup.setActiveTab(0);
 		});
-		scroll.add(cancelBtn);
+		con.add(cancelBtn);
 		
 		var submitBtn = Ti.UI.createButton({
 			title:L('make_it_happen'),
 			height:30,
 			width:135,
 			top:-30,
+			bottom:15,
 			right:20,
 			font:{fontSize:13,fontWeight:'bold'}
 		});
@@ -256,7 +290,14 @@
 			approvalAlert.show();
 			
 		});
-		scroll.add(submitBtn);
+		con.add(submitBtn);
+		
+		scroll.add(con);
+		
+		scroll.add(Ti.UI.createImageView({
+			image:'table-footer.png',
+			height:12
+		}));
 		
 		win.add(scroll);
 		
@@ -272,17 +313,54 @@
 			top:0
 		});
 		
-		win.add(Ti.UI.createLabel({
+		var container = Ti.UI.createView({
+			layout:'vertical',
+			height:424,
+			top:0
+		});
+		
+		var header = Ti.UI.createView({
+			backgroundImage:'table-header.png',
+			height:45
+		});
+		
+		var backBtn = Ti.UI.createButton({
+			title:L('back'),
+			textAlign:'center',
+			height:32,
+			width:60,
+			top:7,
+			left:10,
+			font:{fontSize:13,fontWeight:'bold'},
+			backgroundImage:'back-button.png',
+			backgroundLeftCap:14
+		});
+		backBtn.addEventListener('click',function() {
+			// Go back to Events Table
+			win.close();
+		})
+		
+		header.add(backBtn);
+		container.add(header);
+		
+		var con = Ti.UI.createView({
+			backgroundImage:'table-shadow.png',
+			layout:'vertical',
+			height:'auto'
+		});
+		
+		con.add(Ti.UI.createLabel({
 			text:_event.name,
 			height:15,
 			width:280,
-			font:{fontSize:16,fontWeight:'bold'},
+			font:{fontFamily:'American Typewriter',fontSize:16,fontWeight:'normal'},
+			color:'#569dda',
 			top:15,
 			left:20,
 			ellipsize:true
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:_event.date,
 			height:14,
 			width:280,
@@ -291,7 +369,7 @@
 			left:20
 		}));
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:_event.location,
 			height:14,
 			width:280,
@@ -327,9 +405,9 @@
 				{latitude:(e.coords.latitude+0.005),longitude:(e.coords.longitude-0.007)}
 			]);
 		});
-		win.add(map);
+		con.add(map);
 		
-		win.add(Ti.UI.createLabel({
+		con.add(Ti.UI.createLabel({
 			text:_event.attendees,
 			height:14,
 			width:280,
@@ -367,13 +445,14 @@
 				map.addAnnotation(Ti.Map.createAnnotation({latitude:e.coords.latitude,longitude:e.coords.longitude,animate:true}));
 			});
 		});
-		win.add(acceptBtn);
+		con.add(acceptBtn);
 		
 		var maybeBtn = Ti.UI.createButton({
 			title:L('maybe'),
 			height:30,
 			width:135,
 			top:-30,
+			bottom:15,
 			right:20,
 			font:{fontSize:13,fontWeight:'bold'}
 		});
@@ -382,7 +461,16 @@
 			
 			// if they changed to maybe, remove the pin form the map
 		});
-		win.add(maybeBtn);
+		con.add(maybeBtn);
+		
+		container.add(con);
+		
+		container.add(Ti.UI.createImageView({
+			image:'table-footer.png',
+			height:12
+		}));
+		
+		win.add(container);
 		
 		return win;
 	};
