@@ -407,14 +407,15 @@ win.setLeftNavButton(Ti.UI.createButton({
 		});
 		con.add(map);
 		
-		con.add(Ti.UI.createLabel({
+		var attending = Ti.UI.createLabel({
 			text:_event.attendees,
 			height:14,
 			width:280,
 			font:{fontSize:12, fontFamily:'TrebuchetMS'},
 			top:15,
 			left:20
-		}));
+		});
+		con.add(attending);
 		
 		var acceptBtn = Ti.UI.createButton({
 			title:L('accept'),
@@ -444,6 +445,7 @@ win.setLeftNavButton(Ti.UI.createButton({
 				// add pin to map
 				map.addAnnotation(Ti.Map.createAnnotation({latitude:e.coords.latitude,longitude:e.coords.longitude,animate:true}));
 			});
+			attending.text="You and "+_event.attendees;
 		});
 		con.add(acceptBtn);
 		
